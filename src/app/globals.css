@@ -1,0 +1,103 @@
+
+@import 'tailwindcss';
+@import 'flowbite-react/plugin/tailwindcss';
+@source '../../.flowbite-react/class-list.json';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+	/* Colors - General */
+	--color-black: #000000;
+	--color-white: #FFFFFF;
+
+	/* Colors - Tiering (i.e. primary, secondary, tertiary, etc) */
+	--color-primary-1: #0B3218;
+	--color-primary-2: #0C381B;
+	--color-primary-3: #0E3F1E;
+	--color-primary-4: #0F4521;
+	--color-primary-5: #114B24;
+	--color-primary-6: #125127;
+	--color-primary-7: #13582A;
+	--color-primary-8: #155E2D;
+	--color-primary-9: #166430;
+	--color-primary: #114B24;
+
+	/* Colors - Semantic */
+	--color-semantic-info: #0084FF;
+	--color-semantic-info-1: #004280;
+	--color-semantic-info-2: #004280;
+	--color-semantic-info-3: #004280;
+	--color-semantic-info-4: #004280;
+	--color-semantic-info-5: #0084FF;
+	--color-semantic-info-6: #80C2FF;
+	--color-semantic-info-7: #80C2FF;
+	--color-semantic-info-8: #80C2FF;
+	--color-semantic-info-9: #80C2FF;
+	--color-semantic-warning: #F98C1B;
+	--color-semantic-danger: #D00C0C;
+	--color-semantic-error: #D00C0C;
+	--color-semantic-success: #68D552;
+
+	/* Common */
+	--common-reserved-background: #444444;
+
+	--page-backdrop-color: var(--color-primary-9);
+}
+
+@media (prefer-color-scheme: dark) {
+	--page-backdrop-color: var(--color-primary);
+	--page-background-color-0: var(--color-primary-1);
+	--page-background-color-9: var(--color-primary-9);
+}
+
+@layer base {
+	html {
+		tab-size: 3;
+		overflow: auto;
+		overflow-x: hidden;
+		width: 100vw;
+		height: 100vh;
+		margin: 0;
+		padding: 0;
+		background-color: var(--page-backdrop-color);
+		color: var(--color-white);
+	}
+
+	body {
+		overflow: hidden;
+		width: 100vw;
+		min-height: 100vh;
+		margin: 0;
+		padding: 0;
+		background-color: var(--page-background-color);
+		background-image: linear-gradient(0rad, var(--page-background-color-0) 0%, var(--page-background-color-9) 100%);
+	}
+
+	a {
+		text-decoration: none;
+		text-shadow: 1px 0 10px var(--color-primary-5);
+	}
+
+	a:hover {
+		text-shadow: 1px 0 10px var(--color-primary-9);
+	}
+}
+
+@layer components {
+	.nn-button {
+		transition: box-shadow 500ms ease-in-out;
+
+		padding-inline: --spacing(5);
+		padding-block: --spacing(2);
+		border-radius: calc(infinity * 1px);
+		font-weight: var(--font-weight-semibold);
+	}
+
+	.nn-button-inline {
+		font-weight: var(--font-weight-semibold);
+	}
+
+	.nn-button:hover {
+		box-shadow: 0 0 4px 4px currentColor;
+	}
+}
